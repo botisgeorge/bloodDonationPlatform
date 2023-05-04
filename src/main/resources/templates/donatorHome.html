@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>User Profile</title>
+</head>
+<body>
+<h1><span th:text="${user.name}"></span></h1>
+<p>Username: <span th:text="${user.username}"></span></p>
+<p>Location: <span th:text="${user.location}"></span></p>
+<p>Blood Group: <span th:text="${user.grupaSange}"></span></p>
+
+<a href="/editDonator"><button>Edit Account</button></a>
+<a href="/locations"><button>View Locations</button></a>
+<a href="/deleteDonator"><button>Delete Account</button></a>
+<a href="/donations"><button>View Past Donations</button></a>
+</body>
+</html>

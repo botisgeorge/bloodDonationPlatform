@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Location Details</title>
+</head>
+<body>
+<h1>Location Details</h1>
+<table>
+    <tr>
+        <td>Name:</td>
+        <td th:text="${location.name}"></td>
+    </tr>
+    <tr>
+        <td>Address:</td>
+        <td th:text="${location.adress}"></td>
+    </tr>
+    <tr>
+        <td>Maximum Donations:</td>
+        <td th:text="${location.maximumDonations}"></td>
+    </tr>
+    <tr>
+        <td>Judet:</td>
+        <td th:text="${location.judet}"></td>
+    </tr>
+    <tr>
+        <td>Opening Hour:</td>
+        <td th:text="${location.openingHour}"></td>
+    </tr>
+    <tr>
+        <td>Closing Hour:</td>
+        <td th:text="${location.closingHour}"></td>
+    </tr>
+</table>
+
+<label for="hour">Choose hour:</label>
+<select name="selectedHour" id="hour">
+    <option value="">-</option>
+    <option th:each="hour : ${hours}" th:value="${hour}" th:text="${hour}"></option>
+</select>
+
+<form action="/locations" method="get">
+    <button type="submit">Back</button>
+</form>
+
+<form th:action="@{'/programare=' + ${location.id}}" method="POST">
+    <button type="submit">Creeaza programare</button>
+</form>
+</body>
+</html>

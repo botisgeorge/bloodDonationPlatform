@@ -1,0 +1,45 @@
+<html xmlns:th="http://www.thymeleaf.org">
+<table style="border-collapse: collapse; width: 100%;">
+    <tr style="border: 1px solid black;">
+        <th style="border: 1px solid black;">Name</th>
+        <th style="border: 1px solid black;">Username</th>
+        <th style="border: 1px solid black;">Password</th>
+        <th style="border: 1px solid black;">Location</th>
+        <th style="border: 1px solid black;">Edit</th>
+    </tr>
+    <tr th:each="doctor : ${doctors}" style="border: 1px solid black;">
+        <td style="border: 1px solid black; text-align: center;">
+            <div style="max-width:100px; word-wrap:break-word;">
+                <p th:text="${doctor.name}"></p>
+            </div>
+        </td>
+        <td style="border: 1px solid black; text-align: center;">
+            <div style="max-width:100px; word-wrap:break-word;">
+                <p th:text="${doctor.username}"></p>
+            </div>
+        </td>
+        <td style="border: 1px solid black; text-align: center;">
+            <div style="max-width:100px; word-wrap:break-word;">
+                <p th:text="${doctor.password}"></p>
+            </div>
+        </td>
+        <td style="border: 1px solid black; text-align: center;">
+            <div style="max-width:100px; word-wrap:break-word;">
+                <p th:text="${doctor.location}"></p>
+            </div>
+        </td>
+        <td style="border: 1px solid black; text-align: center;">
+            <form th:action="@{/update={name}(name=${doctor.username})}" method="get">
+                <input type="hidden" name="name" th:value="${doctor.username}">
+                <input type="submit" value="Update">
+            </form>
+        </td>
+
+
+    </tr>
+</table>
+<a href="/admin" class="btn btn-primary">Back</a>
+</body>
+
+
+</html>

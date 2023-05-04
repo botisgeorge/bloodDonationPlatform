@@ -1,0 +1,47 @@
+<html xmlns:th="http://www.thymeleaf.org">
+<table style="border-collapse: collapse; width: 100%;">
+    <tr style="border: 1px solid black;">
+        <th style="border: 1px solid black;">Locatie</th>
+        <th style="border: 1px solid black;">Ora</th>
+        <!--
+        <th style="border: 1px solid black;">Data</th>
+        -->
+        <th style="border: 1px solid black;">Acceptat</th>
+        <th style="border: 1px solid black;">Delete</th>
+    </tr>
+    <tr th:each="programare : ${programari}" style="border: 1px solid black;">
+        <td style="border: 1px solid black; text-align: center;">
+            <div style="max-width:100px; word-wrap:break-word;">
+                <p th:text="${programare.idLocatie}"></p>
+            </div>
+        </td>
+        <td style="border: 1px solid black; text-align: center;">
+            <div style="max-width:100px; word-wrap:break-word;">
+                <p th:text="${programare.ora}"></p>
+            </div>
+        </td>
+       <!--
+       <td style="border: 1px solid black; text-align: center;">
+            <div style="max-width:100px; word-wrap:break-word;">
+                <p th:text="${programare.data}"></p>
+            </div>
+        </td>
+        -->
+        <td style="border: 1px solid black; text-align: center;">
+            <div style="max-width:100px; word-wrap:break-word;">
+                <p th:text="${programare.acceptat}"></p>
+            </div>
+        </td>
+        <td style="border: 1px solid black; text-align: center;">
+            <form th:action="@{/deleteProgramare={locatie}(locatie=${programare.id})}" method="get">
+                <input type="hidden" name="locatie" th:value="${programare.id}">
+                <input type="submit" value="Anuleaza">
+            </form>
+        </td>
+    </tr>
+</table>
+<a href="/donator" class="btn btn-primary">Back</a>
+</body>
+
+
+</html>

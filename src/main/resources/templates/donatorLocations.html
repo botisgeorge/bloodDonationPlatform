@@ -1,0 +1,55 @@
+<html xmlns:th="http://www.thymeleaf.org">
+<table style="border-collapse: collapse; width: 100%;">
+    <tr style="border: 1px solid black;">
+        <th style="border: 1px solid black;">Name</th>
+        <th style="border: 1px solid black;">Judet</th>
+        <th style="border: 1px solid black;">Opening Hour</th>
+        <th style="border: 1px solid black;">Closing Hour</th>
+        <th style="border: 1px solid black;">Adress</th>
+        <th style="border: 1px solid black;">Maximum Donations</th>
+        <th style="border: 1px solid black;">Programare</th>
+    </tr>
+    <tr th:each="location : ${locations}" style="border: 1px solid black;">
+        <td style="border: 1px solid black; text-align: center;">
+            <div style="max-width:100px; word-wrap:break-word;">
+                <p th:text="${location.name}"></p>
+            </div>
+        </td>
+        <td style="border: 1px solid black; text-align: center;">
+            <div style="max-width:100px; word-wrap:break-word;">
+                <p th:text="${location.judet}"></p>
+            </div>
+        </td>
+        <td style="border: 1px solid black; text-align: center;">
+            <div style="max-width:100px; word-wrap:break-word;">
+                <p th:text="${location.openingHour}"></p>
+            </div>
+        </td>
+        <td style="border: 1px solid black; text-align: center;">
+            <div style="max-width:100px; word-wrap:break-word;">
+                <p th:text="${location.closingHour}"></p>
+            </div>
+        </td>
+        <td style="border: 1px solid black; text-align: center;">
+            <div style="max-width:100px; word-wrap:break-word;">
+                <p th:text="${location.adress}"></p>
+            </div>
+        </td>
+        <td style="border: 1px solid black; text-align: center;">
+            <div style="max-width:100px; word-wrap:break-word;">
+                <p th:text="${location.maximumDonations}"></p>
+            </div>
+        </td>
+        <td style="border: 1px solid black; text-align: center;">
+            <form th:action="@{/programare={id}(id=${location.Id})}" method="get">
+                <input type="hidden" name="id" th:value="${location.Id}">
+                <input type="submit" value="Programeaza-te">
+            </form>
+        </td>
+    </tr>
+</table>
+<a href="/donator" class="btn btn-primary">Back</a>
+</body>
+
+
+</html>

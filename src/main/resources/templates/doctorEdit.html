@@ -1,0 +1,52 @@
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <style>
+        .login-button {
+            width: 100px; /* set width to desired size */
+            height:35px; /* set height to desired size */
+            display: inline-block; /* display buttons next to each other */
+        }
+    </style>
+    <title>Edit Doctor</title>
+    <style>
+        form {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+    </style>
+</head>
+<body>
+<form th:action="@{/update={name}(name=${doctor.username})}" method="post">
+    <label for="name">Name:</label>
+    <input type="text" id="name" name="name" th:value="${doctor.name}">
+    <br>
+    <label for="username">Username:</label>
+    <input type="text" id="username" name="username" th:value="${doctor.username}">
+    <br>
+    <label for="password">Password:</label>
+    <input type="text" id="password" name="password" th:value="${doctor.password}">
+    <br>
+    <label for="location">Location:</label>
+    <input type="text" id="location" name="location" th:value="${doctor.location}">
+    <br>
+    <div class="button-container">
+        <button class="login-button" type="submit">Save</button>
+        <a href="/adminU">
+            <button class="login-button" type="button">Cancel</button>
+        </a>
+    </div>
+</form>
+
+<style>
+    .button-container {
+        display: inline-block;
+    }
+    .login-button {
+        margin-right: 10px;
+    }
+</style>
+</body>
+</html>

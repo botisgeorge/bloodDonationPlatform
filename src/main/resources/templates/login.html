@@ -1,0 +1,55 @@
+<html>
+<head>
+    <style>
+        .login-button {
+            width: 100px; /* set width to desired size */
+            height:35px; /* set height to desired size */
+            display: inline-block; /* display buttons next to each other */
+        }
+    </style>
+    <title>Login</title>
+    <style>
+        form {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+    </style>
+</head>
+<body>
+<form action="/login" method="post">
+    <label for="username">Username:</label>
+    <input type="text" id="username" name="username">
+    <br>
+    <label for="password">Password:</label>
+    <input type="password" id="password" name="password">
+    <br>
+    <div class="button-container">
+        <button class="login-button" type="submit">Login</button>
+        <a href="register">
+            <button class="login-button" type="button">Register</button>
+        </a>
+    </div>
+</form>
+
+
+
+<style>
+    .button-container {
+        display: inline-block;
+    }
+    .login-button {
+        margin-right: 10px;
+    }
+</style>
+
+
+<br>
+
+
+</body>
+</html>
+
+`
